@@ -58,7 +58,31 @@ end
 
 # 9. Find people with no friends
 # (hint: return an array, there might be more people in the future with no friends!)
-
+  def nae_pals(people_array)
+    alone = []
+    for person in people_array
+      alone.push(person[:name]) if person[:friends].length == 0
+    end
+    return alone
+  end
 
 # Optional, VERY TOUGH
 # 10. Find the people who have the same favourite tv show
+  def same_fav_tv_shows(people_array)
+    favs = {}
+
+    for person in people_array
+      tv_show = person[:favourites][:tv_show]
+      if favs[tv_show]
+        favs[tv_show].push(person[:name])
+      else
+        favs[tv_show] = [person[:name]]
+      end
+    end
+
+    favs.each do |key, value|
+       favs.delete(key) if !(value.length > 1)
+    end
+
+    return favs
+  end

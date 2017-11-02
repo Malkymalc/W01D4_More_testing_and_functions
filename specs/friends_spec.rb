@@ -109,6 +109,8 @@ end
   end
 
 
+
+
   # 7. For two given people, allow the first person to loan a given value of money to the other
   # (hint: you need to pass in the lender, the lendee, and the amount for this function)
   # (hint2: You should test if both the lender's and the lendee's money have changed)
@@ -128,9 +130,16 @@ end
 
   # 9. Find people with no friends
   # (hint: return an array, there might be more people in the future with no friends!)
-
-
+  def test_nae_pals
+    result = nae_pals(@people)
+    assert_equal(["Dave"], result)
+  end
   # Optional, VERY TOUGH
   # 10. Find the people who have the same favourite tv show
+  def test_same_fav_tv_shows
+    result = same_fav_tv_shows(@people)
+    assert_equal({"Pokemon" => ["Val","Keith"]}, result)
+  end
+
 
 end
